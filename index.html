@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rina Davila Severiano</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+/* VOICE: warm, precise academic; confident but not loud.
+   IDEA: a freight route map / highway sign – energy moving through supply chains.
+   PICTURE: a landscape strip: solar field, cement plant, electric truck on the road, grid tower and a shifted load curve.
+   COLOUR and TYPE: white ground, ink, cobalt "grid" blue fields, signal orange accent; Overpass (highway-sign lettering) + Source Serif for reading.
+   LAYOUT: sticky nav, hero with name + portrait over the route strip, then research, publications, talks, experience, teaching, news, footer. */
+:root{color-scheme:light dark;
+--bg:light-dark(#ffffff,#0f1218);--ink:light-dark(#14171c,#eef0f4);--mut:light-dark(#555c66,#a8afba);
+--blue:light-dark(#2347d4,#6f8cff);--band:light-dark(#2347d4,#1a2a6b);--bandink:#ffffff;
+--road:light-dark(#3a3f47,#2a2f38);--soft:light-dark(#eef1fb,#171c28);--line:light-dark(#dfe3ea,#2a303b);--acc:#ff6a2b}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 "Source Serif 4",Georgia,serif;overflow-x:clip}
+h1,h2,h3,nav,.sans{font-family:Overpass,"Helvetica Neue",Arial,sans-serif}
+a{color:var(--blue);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--acc);outline-offset:2px;border-radius:3px}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding:clamp(36px,5vw,72px) max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;padding:10px max(5vw,16px)}
+nav .me{font-weight:800;color:var(--ink);text-decoration:none;margin-right:auto;font-size:17px}
+nav .links{display:flex;gap:2px 16px;overflow-x:auto}
+nav .links a{flex:none;color:var(--mut);text-decoration:none;font-weight:600;font-size:15px;padding:10px 0}
+nav .links a:hover{color:var(--blue)}
+/* hero */
+.hero{background:var(--band);color:var(--bandink);padding-bottom:0}
+.hgrid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+.hero h1{font-size:clamp(38px,5.4vw,60px);line-height:1.03;margin:0 0 14px;font-weight:800;text-wrap:balance}
+.role{font:600 19px/1.4 Overpass,sans-serif;margin:0 0 18px;opacity:.95}
+.hero p{max-width:62ch;margin:0 0 14px}
+.hero a{color:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chips a{font:600 15px Overpass,sans-serif;color:#fff;text-decoration:none;border:1.5px solid rgba(255,255,255,.7);border-radius:999px;padding:10px 18px;min-height:44px;display:inline-flex;align-items:center}
+.chips a:hover{background:#fff;color:#2347d4}
+.chips a.pri{background:var(--acc);border-color:var(--acc);color:#14171c}
+.portrait{justify-self:center;width:min(340px,100%);aspect-ratio:1;border-radius:50%;overflow:hidden;border:6px solid #fff;box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
+.route{display:block;width:100%;height:auto;margin-top:clamp(28px,4vw,48px)}
+@media (prefers-reduced-motion:no-preference){.truck{animation:drive 14s linear infinite}}
+@keyframes drive{from{transform:translateX(-160px)}to{transform:translateX(1360px)}}
+/* sections */
+h2{font-size:clamp(28px,3.4vw,40px);line-height:1.08;margin:0 0 22px;font-weight:800;text-wrap:balance}
+h3{font-size:20px;line-height:1.25;margin:0 0 6px;font-weight:800}
+.lede{max-width:68ch;color:var(--mut);margin:0 0 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:22px}
+.card{background:var(--soft);border-radius:14px;padding:24px}
+.card .sign{display:inline-block;font:800 13px Overpass,sans-serif;background:var(--blue);color:#fff;border-radius:6px;padding:3px 10px;margin-bottom:12px}
+.card ul{margin:10px 0 0;padding-left:20px}.card li{margin:4px 0}
+.alt{background:var(--soft)}
+.pubs{list-style:none;margin:0;padding:0;counter-reset:p 5}
+.pubs li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:8px;padding:16px 0;border-top:1px solid var(--line)}
+.pubs li::before{counter-increment:p -1;content:"[" counter(p) "]";font:800 16px Overpass,sans-serif;color:var(--blue)}
+.pubs .t{font-weight:600}
+.pubs .v{color:var(--mut)}
+.tag{font:600 13px Overpass,sans-serif;border-radius:999px;padding:2px 10px;margin-left:6px;white-space:nowrap;background:var(--bg);border:1px solid var(--line);color:var(--mut)}
+.tl{list-style:none;margin:0;padding:0}
+.tl li{display:grid;grid-template-columns:10.5em minmax(0,1fr);gap:18px;padding:16px 0;border-top:1px solid var(--line)}
+.tl .d{font:600 15px/1.5 Overpass,sans-serif;color:var(--mut);white-space:nowrap}
+.tl p{margin:4px 0 0}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(28px,4vw,56px)}
+.skills{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px;padding:0;list-style:none}
+.skills li{font:600 14px Overpass,sans-serif;background:var(--soft);border-radius:8px;padding:6px 12px}
+.alt .skills li{background:var(--bg)}
+.news{list-style:none;margin:0;padding:0}
+.news li{padding:12px 0;border-top:1px solid var(--line)}
+.news b{font-family:Overpass,sans-serif;color:var(--blue);margin-right:8px;white-space:nowrap}
+footer{background:var(--road);color:#e8eaee}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+footer a{color:#fff}
+footer p{margin:0}
+@media(max-width:760px){.hgrid{grid-template-columns:minmax(0,1fr)}.portrait{width:min(240px,70%);order:-1}}
+@media(max-width:600px){.tl li{grid-template-columns:minmax(0,1fr);gap:2px}.pubs li{grid-template-columns:2.6em minmax(0,1fr)}nav .me{width:100%}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="me" href="#top">Rina Davila Severiano</a>
+  <div class="links">
+    <a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#teaching">Teaching</a><a href="#news">News</a><a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<header class="band hero" id="top">
+  <div class="wrap hgrid">
+    <div>
+      <h1>Rina Y. Davila Severiano</h1>
+      <p class="role">4th-year Ph.D. Candidate · Industrial &amp; Systems Engineering · Georgia Institute of Technology</p>
+      <p>I build optimization models for the electrified economy. My research asks how electric freight and electrified supply chains can work <em>with</em> the power grid: shifting energy demand across hours and days, soaking up renewable generation, and making heavy-duty electrification pay off.</p>
+      <p>I am advised by <a href="https://constancecrozier.github.io/">Prof. Constance Crozier</a>, whose group studies future electrified systems and how to exploit their flexibility. I am an Anderson-Interface Ph.D. Fellow and hold a B.S. in Industrial and Systems Engineering from NC State (summa cum laude).</p>
+      <div class="chips">
+        <a class="pri" href="#publications">Publications</a>
+        <a href="https://www.linkedin.com/in/rydavila">LinkedIn</a>
+        <a href="#contact">Email me</a>
+      </div>
+    </div>
+    <div class="portrait"><img src="photo.jpg" alt="Portrait of Rina Davila Severiano"></div>
+  </div>
+  <svg class="route" viewBox="0 0 1200 190" role="img" aria-label="Illustration: solar panels and a cement plant connected by a road with an electric truck, next to a power line">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity="0"/><stop offset="1" stop-color="#ffffff" stop-opacity=".12"/></linearGradient>
+      <g id="panel"><path d="M0 0h46l-10 22h-46z" fill="#0f2a8f" stroke="#9fb3ff" stroke-width="1.5"/><path d="M-3 22v14" stroke="#cfd8ff" stroke-width="3"/></g>
+      <g id="tower"><path d="M0 0 L-16 120 M0 0 L16 120 M-12 30h24 M-14 60h28 M-16 90h32 M-28 18h56" stroke="#dfe6ff" stroke-width="3" fill="none"/></g>
+    </defs>
+    <rect width="1200" height="190" fill="url(#sky)"/>
+    <circle cx="90" cy="38" r="22" fill="#ffd36b"/>
+    <!-- load curve: original vs shifted -->
+    <path d="M300 70 C360 70 380 20 440 25 S520 80 580 70" fill="none" stroke="#ffffff" stroke-opacity=".45" stroke-width="2" stroke-dasharray="5 5"/>
+    <path d="M300 75 C350 75 370 55 420 50 S520 50 580 72" fill="none" stroke="#ff6a2b" stroke-width="3"/>
+    <text x="590" y="60" fill="#ffffff" font-family="Overpass,sans-serif" font-size="13" font-weight="600">shifted load</text>
+    <g transform="translate(40 92)"><use href="#panel"/><use href="#panel" x="58"/><use href="#panel" x="116"/></g>
+    <!-- cement plant -->
+    <g transform="translate(760 54)">
+      <rect x="0" y="40" width="120" height="70" fill="#e9e7e2"/><rect x="0" y="40" width="120" height="8" fill="#ffffff"/>
+      <rect x="20" y="0" width="16" height="44" fill="#d5d2cb"/><rect x="60" y="14" width="40" height="30" rx="20" fill="#d5d2cb"/>
+      <path d="M130 110 l20 -60 l20 60z" fill="#cfcbc3"/>
+      <rect x="18" y="66" width="22" height="44" fill="#2347d4"/><rect x="58" y="62" width="44" height="18" fill="#9aa3b5"/>
+    </g>
+    <g transform="translate(1040 40)"><use href="#tower"/></g>
+    <g transform="translate(1140 40)"><use href="#tower"/></g>
+    <path d="M1012 58 Q1090 78 1112 58 Q1150 74 1200 64" stroke="#dfe6ff" stroke-width="1.5" fill="none"/>
+    <!-- road -->
+    <rect y="164" width="1200" height="26" fill="#1b2340"/>
+    <path d="M0 177h1200" stroke="#ffffff" stroke-width="2" stroke-dasharray="22 18" opacity=".7"/>
+    <!-- truck -->
+    <g class="truck">
+      <g transform="translate(0 120)">
+        <rect x="0" y="4" width="92" height="40" rx="3" fill="#ffffff"/>
+        <path d="M14 18h20l-6 10h8l-14 14 4-10h-8z" fill="#ff6a2b"/>
+        <path d="M96 14h24l14 16v14h-38z" fill="#ff6a2b"/><path d="M104 18h14l8 10h-22z" fill="#1b2340"/>
+        <circle cx="22" cy="46" r="8" fill="#14171c"/><circle cx="70" cy="46" r="8" fill="#14171c"/><circle cx="118" cy="46" r="8" fill="#14171c"/>
+      </g>
+    </g>
+  </svg>
+</header>
+
+<section class="band" id="research"><div class="wrap">
+  <h2>Research</h2>
+  <p class="lede">Operations research for energy and transportation: mixed-integer programming, decomposition methods and stochastic optimization, applied with real data to questions that matter for decarbonization.</p>
+  <div class="cards">
+    <article class="card">
+      <span class="sign">Demand flexibility</span>
+      <h3>Price-responsive flexibility from electrified supply chains</h3>
+      <p>A MILP that couples vehicle routing, electrified production and power system planning. By exploiting the slack already present in supply chains, it reached 40% higher renewables utilization than battery energy storage.</p>
+      <ul><li>Cement supply-chain case study showing multi-day, GWh-scale load shifting</li><li>Benders decomposition in Pyomo to handle integrality at scale</li></ul>
+    </article>
+    <article class="card">
+      <span class="sign">Freight electrification</span>
+      <h3>Tipping points for heavy-duty vehicle electrification</h3>
+      <p>When do battery-electric trucks beat diesel? I jointly optimize fleet composition, routing, charging infrastructure, supply-chain decisions and on-site solar for long-haul fleets.</p>
+      <ul><li>Capital, operating, charging and payback analysis</li><li>Case studies across three geographic networks</li></ul>
+    </article>
+    <article class="card">
+      <span class="sign">Buildings &amp; policy</span>
+      <h3>Behind-the-meter solar and storage in Michigan</h3>
+      <p>With the Michigan Department of EGLE, I modeled cost-minimizing solar and storage for buildings using NREL data, finding up to $10M in 25-year savings for large commercial sites. I presented the results to the Michigan Solar for All program.</p>
+    </article>
+    <article class="card">
+      <span class="sign">Education</span>
+      <h3>Generative AI and student learning</h3>
+      <p>A statistical study in R of a two-exam crossover design: Mann-Whitney U tests, bootstrap intervals, question-level effect sizes and within-student paired analysis, used to inform AI-use policy.</p>
+    </article>
+  </div>
+</div></section>
+
+<section class="band alt" id="publications"><div class="wrap">
+  <h2>Publications</h2>
+  <ol class="pubs">
+    <li><div><span class="t">Tipping Points for the Electrification of Heavy-Duty Vehicles.</span> <b>R. Davila Severiano</b>, C. Crozier. <span class="v">Preprint, 2026.</span> <span class="tag">In preparation</span></div></li>
+    <li><div><span class="t">Battery Swapping Stations for Long Haul Freight Charging Considering an Electrified Supply Chain.</span> Y. Ji, <b>R. Davila Severiano</b>, C. Crozier. <span class="v">IEEE North American Power Symposium (NAPS), 2025.</span></div></li>
+    <li><div><span class="t">On the Potential of Electrified Supply Chains to Provide Long Duration Demand Flexibility.</span> <b>R. Davila Severiano</b>, C. Crozier, M. O’Malley, C. White. <span class="v">2025.</span> <span class="tag">Under review</span></div></li>
+    <li><div><span class="t">Scheduling Electrified Freight Transportation to Increase Renewable Generation Utilization.</span> <b>R. Davila Severiano</b>, C. Crozier. <span class="v">IEEE North American Power Symposium (NAPS), 2024.</span></div></li>
+  </ol>
+  <h3 style="margin-top:40px">Presentations</h3>
+  <ul class="tl">
+    <li><span class="d">Sep 2026</span><div><b>Economic Electrification of Heavy-Duty Vehicles: Changes and Catalysts.</b> Poster, PowerUp 2026, Boulder, CO.</div></li>
+    <li><span class="d">Oct 2025</span><div><b>On the Potential of Electrified Supply Chains to Provide Long Duration Demand Flexibility.</b> Talk, INFORMS Annual Meeting, Atlanta, GA.</div></li>
+    <li><span class="d">Jul 2025</span><div><b>Quantifying the Potential of Electrified Supply Chains for Long Duration Demand Flexibility.</b> Poster, IEEE PES General Meeting, Austin, TX.</div></li>
+    <li><span class="d">Oct 2024</span><div><b>Scheduling Electrified Freight Transportation to Increase Renewable Generation Utilization.</b> Talk, 56th North American Power Symposium, El Paso, TX.</div></li>
+  </ul>
+</div></section>
+
+<section class="band" id="experience"><div class="wrap two">
+  <div>
+    <h2>Experience</h2>
+    <ul class="tl">
+      <li><span class="d">Dec 2023 – now</span><div><b>Graduate Researcher</b>, Georgia Tech<p>Electrified supply chains, freight electrification and power system planning (Python, Gurobi, Pyomo).</p></div></li>
+      <li><span class="d">May 2026 – now</span><div><b>Research Assistant</b>, Georgia Tech<p>Statistical evaluation of generative AI access on exam performance.</p></div></li>
+      <li><span class="d">Dec 2024 – Dec 2025</span><div><b>Project Researcher</b>, Michigan Dept. of EGLE<p>Solar and storage optimization for Michigan buildings.</p></div></li>
+      <li><span class="d">2022 – 2023</span><div><b>Undergraduate Researcher</b>, NC State<p>COVID-19 mental health study with HCUP emergency department data (SAS); front-end developer for the SimOpt GUI.</p></div></li>
+    </ul>
+  </div>
+  <div>
+    <h2>Education</h2>
+    <ul class="tl">
+      <li><span class="d">Expected 2027</span><div><b>Ph.D., Industrial Engineering</b><p>Georgia Institute of Technology · Advisor: Constance Crozier</p></div></li>
+      <li><span class="d">May 2023</span><div><b>B.S., Industrial &amp; Systems Engineering</b><p>North Carolina State University · GPA 4.0 · Summa cum laude</p></div></li>
+    </ul>
+    <h3 style="margin-top:32px">Skills</h3>
+    <ul class="skills"><li>Python</li><li>Gurobi</li><li>Pyomo</li><li>Pandas / NumPy</li><li>R</li><li>SQL</li><li>SAS</li><li>Simio</li><li>GitHub</li></ul>
+    <ul class="skills"><li>MILP</li><li>Benders decomposition</li><li>Constraint generation</li><li>Progressive hedging</li><li>Stochastic optimization</li><li>Regression &amp; forecasting</li><li>Economic analysis</li></ul>
+    <p class="sans" style="color:var(--mut);font-size:15px">Languages: English (native), Spanish (fluent)</p>
+  </div>
+</div></section>
+
+<section class="band alt" id="teaching"><div class="wrap two">
+  <div>
+    <h2>Teaching</h2>
+    <ul class="tl">
+      <li><span class="d">Summer 2026</span><div><b>Instructor</b>, Georgia Tech<p>Designed and taught a data analysis course for high school students in R and R Markdown, guided a student research team from hypothesis to formal proposal, and taught responsible AI-assisted research.</p></div></li>
+      <li><span class="d">2023 – 2024</span><div><b>Tutor</b>, Center for Academic Success and Equity<p>One-on-one support for undergraduates, especially in supply chain modeling.</p></div></li>
+    </ul>
+  </div>
+  <div>
+    <h2>Service &amp; honors</h2>
+    <ul class="tl">
+      <li><span class="d">2025</span><div><b>Anderson-Interface Ph.D. Student Fellowship</b></div></li>
+      <li><span class="d">2024 – now</span><div><b>Graduate Representative</b>, COE Culture &amp; Community</div></li>
+      <li><span class="d">2024 – now</span><div><b>Member</b>, Women in Industrial and Systems Engineering</div></li>
+      <li><span class="d">2019 – 2023</span><div><b>Society of Women Engineers</b>; Dean’s List every semester; summa cum laude</div></li>
+    </ul>
+  </div>
+</div></section>
+
+<section class="band" id="news"><div class="wrap">
+  <h2>News</h2>
+  <ul class="news">
+    <li><b>Sep 2026</b>Presented a poster on the economics of heavy-duty vehicle electrification at PowerUp 2026 in Boulder.</li>
+    <li><b>May 2026</b>Started teaching a summer data analysis course for high school students and joined a study on generative AI in the classroom.</li>
+    <li><b>2025</b>Received the Anderson-Interface Ph.D. Student Fellowship.</li>
+    <li><b>Oct 2025</b>Presented our electrified supply chain work at the INFORMS Annual Meeting in Atlanta.</li>
+    <li><b>Jul 2025</b>Poster at the IEEE PES General Meeting in Austin.</li>
+    <li><b>2025</b>Paper on battery swapping stations for long-haul freight, with Yiru Ji, accepted at NAPS 2025.</li>
+    <li><b>Dec 2024</b>Began a project with the Michigan Department of EGLE on behind-the-meter solar and storage.</li>
+    <li><b>Oct 2024</b>Presented my first conference paper at NAPS 2024 in El Paso.</li>
+  </ul>
+</div></section>
+
+<footer class="band" id="contact"><div class="wrap">
+  <div>
+    <h2 style="color:#fff">Get in touch</h2>
+    <p>Email: <a href="mailto:rina.davila.seve@gmail.com">rina.davila.seve@gmail.com</a></p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/rydavila">linkedin.com/in/rydavila</a></p>
+    <p>Group: <a href="https://constancecrozier.github.io/">Crozier Group, Georgia Tech</a></p>
+  </div>
+  <p class="sans" style="align-self:flex-end;opacity:.8;font-size:14px">H. Milton Stewart School of Industrial &amp; Systems Engineering · Atlanta, GA</p>
+</div></footer>
+</body>
+</html>

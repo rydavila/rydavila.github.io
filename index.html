@@ -73,6 +73,18 @@ h3{font-size:20px;line-height:1.25;margin:0 0 6px;font-weight:800}
 .news{list-style:none;margin:0;padding:0}
 .news li{padding:12px 0;border-top:1px solid var(--line)}
 .news b{font-family:Overpass,sans-serif;color:var(--blue);margin-right:8px;white-space:nowrap}
+.overview{max-width:78ch;margin:0 0 32px}
+.overview p{margin:0 0 14px}
+.qs{margin:0 0 16px;padding-left:22px}.qs li{margin:0 0 10px;padding-left:4px}.qs b{font-family:Overpass,sans-serif}
+.about{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:clamp(24px,4vw,56px);align-items:start}
+.abouttext p{margin:0 0 14px;font-size:18px}
+.photos{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.photos figure{margin:0;position:relative;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--soft)}
+.photos .tall{grid-row:span 2;aspect-ratio:auto}
+.photos img{width:100%;height:100%;object-fit:cover;display:block}
+.photos figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px 12px 10px;font:600 14px/1.3 Overpass,sans-serif;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.65))}
+@media(max-width:760px){.about{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:480px){.photos{grid-template-columns:minmax(0,1fr)}.photos .tall{grid-row:auto;aspect-ratio:3/4}}
 footer{background:var(--road);color:#e8eaee}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
 footer a{color:#fff}
@@ -85,7 +97,7 @@ footer p{margin:0}
 <nav><div class="wrap">
   <a class="me" href="#top">Rina Davila Severiano</a>
   <div class="links">
-    <a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#teaching">Teaching</a><a href="#news">News</a><a href="#contact">Contact</a>
+    <a href="#research">Research</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#teaching">Teaching</a><a href="#about">About me</a><a href="#news">News</a><a href="#contact">Contact</a>
   </div>
 </div></nav>
 
@@ -94,8 +106,8 @@ footer p{margin:0}
     <div>
       <h1>Rina Y. Davila Severiano</h1>
       <p class="role">4th-year Ph.D. Candidate · Industrial &amp; Systems Engineering · Georgia Institute of Technology</p>
-      <p>I build optimization models for the electrified economy. My research asks how electric freight and electrified supply chains can work <em>with</em> the power grid: shifting energy demand across hours and days, soaking up renewable generation, and making heavy-duty electrification pay off.</p>
-      <p>I am advised by <a href="https://constancecrozier.github.io/">Prof. Constance Crozier</a>, whose group studies future electrified systems and how to exploit their flexibility. I am an Anderson-Interface Ph.D. Fellow and hold a B.S. in Industrial and Systems Engineering from NC State (summa cum laude).</p>
+      <p>Rina Davila Severiano is a fourth-year Ph.D. candidate in Industrial and Systems Engineering at the Georgia Institute of Technology, advised by <a href="https://constancecrozier.github.io/">Dr. Constance Crozier</a>. Her research focuses on optimization methods for electrified supply chains, freight electrification and energy systems, with an emphasis on coordinating logistics and energy decisions to improve operational efficiency and renewable energy integration.</p>
+      <p>She received the 2025 Anderson–Interface Ph.D. Student Fellowship for Research Excellence in Energy and Sustainable Systems, and earned her B.S. in Industrial and Systems Engineering from North Carolina State University in 2023.</p>
       <div class="chips">
         <a class="pri" href="#publications">Publications</a>
         <a href="https://www.linkedin.com/in/rydavila">LinkedIn</a>
@@ -144,7 +156,14 @@ footer p{margin:0}
 
 <section class="band" id="research"><div class="wrap">
   <h2>Research</h2>
-  <p class="lede">Operations research for energy and transportation: mixed-integer programming, decomposition methods and stochastic optimization, applied with real data to questions that matter for decarbonization.</p>
+  <div class="overview">
+    <p>As freight transportation and manufacturing become increasingly electrified, transportation and power systems are becoming more interconnected. My research addresses two questions raised by this integration:</p>
+    <ol class="qs">
+      <li><b>When do electric trucks pay off?</b> Electric trucks have higher upfront costs but lower operating costs than diesel. Under what conditions do they become economically competitive?</li>
+      <li><b>How can new demand be made flexible?</b> Electrified transportation adds electricity demand to grids that rely more and more on variable renewable energy. How can that demand be shifted to when clean power is available?</li>
+    </ol>
+    <p>To answer them, I develop mixed-integer linear programming models that jointly optimize supply chain operations and energy decisions. One model optimizes mixed fleets of electric and diesel trucks, charging infrastructure and policy scenarios to evaluate competitiveness and payback periods. Another coordinates manufacturing, inventory and transportation to move electricity use toward periods of high renewable availability, a source of demand flexibility beyond battery storage. I also develop decomposition methods that let these models be solved at larger scale.</p>
+  </div>
   <div class="cards">
     <article class="card">
       <span class="sign">Demand flexibility</span>
@@ -230,7 +249,23 @@ footer p{margin:0}
   </div>
 </div></section>
 
-<section class="band" id="news"><div class="wrap">
+<section class="band" id="about"><div class="wrap">
+  <h2>About me</h2>
+  <div class="about">
+    <div class="abouttext">
+      <p>Outside the lab, you’ll usually find me outdoors. I love being outside, whether that’s on a trail, at a park, or exploring a new city on foot.</p>
+      <p>Running is my favorite way to do it. I love running half marathons and marathons, and there’s nothing quite like crossing the finish line.</p>
+      <p>I’m a native English speaker and fluent in Spanish.</p>
+    </div>
+    <div class="photos">
+      <figure class="tall"><img src="about-finish.jpg" alt="Rina crossing the finish line at the Whidbey Island Marathon with her arms raised" loading="lazy"><figcaption>Crossing the finish line at the Whidbey Island Marathon</figcaption></figure>
+      <figure><img src="about-run.jpg" alt="Rina running on a sunny paved trail lined with trees" loading="lazy"><figcaption>Sunny miles on the trail</figcaption></figure>
+      <figure><img src="about-city.jpg" alt="Rina in a red scarf with a coffee in front of a pink townhouse" loading="lazy"><figcaption>Exploring a new city</figcaption></figure>
+    </div>
+  </div>
+</div></section>
+
+<section class="band alt" id="news"><div class="wrap">
   <h2>News</h2>
   <ul class="news">
     <li><b>Sep 2026</b>Presented a poster on the economics of heavy-duty vehicle electrification at PowerUp 2026 in Boulder.</li>
